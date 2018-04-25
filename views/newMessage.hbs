@@ -1,0 +1,17 @@
+<h2>SMS {{contact.name}}</h2>
+
+{{#if error}}
+<div class="alert alert-danger">{{error}}</div>
+{{/if}}
+
+<form class="well form-horizontal" id="message-form" action="/messages/send/{{contactId}}" method="post">
+  <div class="form-group">
+    <textarea type="text" class="form-control" name="content" rows="5" placeholder="please type in your message">{{form.content}}</textarea>
+  </div>
+
+  <input type="submit" class="btn btn-primary" value="Send">
+</form>
+
+<div>
+  <a href="/contacts"><button class="btn btn-warning">View All Contacts</button></a>
+</div>

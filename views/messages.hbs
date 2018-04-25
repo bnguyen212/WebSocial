@@ -1,0 +1,29 @@
+<h2>MESSAGES</h2>
+
+{{#if error}}
+<div class="alert alert-danger">{{error}}</div>
+{{/if}}
+
+<div id="messages-list">
+{{#each messages}}
+  {{#if this.from}}
+    <div class="message" style="border: solid 3px green; padding: 10px; margin: 10px">
+      <div class="message-from">Sent by: {{this.contact.name}}</div>
+      <div class="message-time">At: {{this.created}}</div>
+      <div class="message-content">Message: {{this.content}}</div>
+    </div>
+  {{else}}
+    <div class="message" style="border: solid 3px blue; padding: 10px; margin: 10px">
+      <div class="message-from">Sent to: {{this.contact.name}}</div>
+      <div class="message-time">At: {{this.created}}</div>
+      <div class="message-content">Message: {{this.content}}</div>
+    </div>
+  {{/if}}
+  
+{{/each}}
+</div>
+
+
+<div>
+  <a href="/contacts"><button class="btn btn-warning">View All Contacts</button></a>
+</div>

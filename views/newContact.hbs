@@ -1,0 +1,23 @@
+<h2>NEW CONTACT</h2>
+
+{{#if error}}
+<div class="alert alert-danger">{{error}}</div>
+{{/if}}
+
+<form class="well form-horizontal" id="new-contact-form" action="/contacts/new" method="post">
+  <div class="form-group">
+  <label class="control-label">Name: </label>
+  <input type="text" class="form-control" name="name" placeholder="name" value="{{form.name}}">
+  </div>
+
+  <div class="form-group">
+  <label>Phone: </label>
+  <input type="text" class="form-control" name="phone" placeholder="##########" value="{{form.phone}}">
+  </div>
+
+  <input type="submit" class="btn btn-primary" value="Create Contact">
+</form>
+
+<div>
+  <a href="/contacts"><button class="btn btn-warning">View All Contacts</button></a>
+</div>

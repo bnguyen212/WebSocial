@@ -1,0 +1,70 @@
+<h1>WEB SOCIAL</h1>
+
+{{#if user.pictureURL}}<div style="display:flex; justify-content: center; align-items: center"><img src="{{user.pictureURL}}" style="min-width: 50px; min-height: 50px; padding-right: 20px;"><h3>Logged in as {{user.username}}</h3></div>{{/if}}
+
+
+<div id="contacts-list" class="container">
+  <h2>SMS Contacts</h2>
+  <div class="row"">
+    <div class="col-sm-3 col-md-3 col-lg-3"><strong>Name</strong></div>
+    <div class="col-sm-3 col-md-3 col-lg-3"><strong>Phone</strong></div>
+    <div class="col-sm-6 col-md-6 col-lg-6"><strong>Links</strong></div>
+  </div>
+  {{#each contacts}}
+  <div class="contact row" style="border-top: solid 1px blue; padding: 5px; margin: 5px;">
+    <div class="col-sm-3 col-md-3 col-lg-3 contact-name">{{this.name}}</div>
+    <div class="col-sm-3 col-md-3 col-lg-3 contact-phone">{{this.phone}}</div>
+    <div class="col-sm-6 col-md-6 col-lg-6 contact-links">
+      <a href="/messages/send/{{this._id}}" class="btn btn-info">Send Text</a>
+      <a href="/messages/{{this._id}}" class="btn btn-primary">View Messages</a>
+      <a href="/contacts/{{this._id}}" class="btn btn-success">Edit Contact</a>
+    </div>
+  </div>
+  {{/each}}
+  <div class="row">
+    <div class="col-sm-3 col-md-3 col-lg-3">
+      <a href="/contacts/new"><button class="btn btn-warning">Add Contact</button></a>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-6">
+      <a href="/messages"><button class="btn btn-primary">View All Messages</button></a>
+    </div>
+  </div>
+</div>
+
+
+
+{{#if user.twitterID}}
+<div id="twitter-followers" class="container">
+  <h2>Twitter Followers</h2>
+  <div class="row">
+    <div class="col-sm-1 col-md-1 col-lg-1"></div>
+    <div class="col-sm-3 col-md-3 col-lg-3"><strong>Screen Name</strong></div>
+    <div class="col-sm-3 col-md-3 col-lg-3"><strong>ID</strong></div>
+    <div class="col-sm-5 col-md-5 col-lg-5"><strong>Links</strong></div>
+  </div>
+  {{#each user.followers.users}}
+  <div class="contact row" style="border-top: solid 1px purple; padding: 5px; margin: 5px">
+    <div class="col-sm-1 col-md-1 col-lg-1 follower-photo">
+      <img src="{{this.profile_image_url_https}}" style="min-width: 50px; min-height: 50px">
+    </div>
+    <div class="col-sm-3 col-md-3 col-lg-3 follower-screen-name">{{this.screen_name}}</div>
+    <div class="col-sm-3 col-md-3 col-lg-3 follower-id-str">{{this.id_str}}</div>
+    <div class="col-sm-5 col-md-5 col-lg-5 contact-links">
+      <a href="/twitter/messages/send/{{this.id_str}}" class="btn btn-info">Send Message</a>
+    </div>
+  </div>
+  {{/each}}
+  <div class="row">
+    <div class="col-sm-3 col-md-3 col-lg-3 col">
+      <a href="/twitter/messages" class="btn btn-primary">View All Twitter Messages</a>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-6">
+      <a href="/twitter/import" class="btn btn-warning">Import Twitter Followers</a>
+    </div>
+  </div>
+</div>
+{{/if}}
+
+<div style="display:flex; justify-content: space-evenly">
+  <a href="/logout"><button class="btn btn-danger">Logout</button></a>
+</div>

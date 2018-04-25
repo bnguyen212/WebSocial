@@ -1,0 +1,23 @@
+<h2>EDIT CONTACT INFO</h2>
+
+{{#if error}}
+<div class="alert alert-danger">{{error}}</div>
+{{/if}}
+
+<form class="well form-horizontal" id="edit-contact-form" action="/contacts/{{id}}" method="post">
+  <div class="form-group">
+  <label class="control-label">Name: </label>
+  <input type="text" class="form-control" name="name" placeholder="name" value="{{form.name}}">
+  </div>
+
+  <div class="form-group">
+  <label>Phone: </label>
+  <input type="text" class="form-control" name="phone" placeholder="##########" value="{{form.phone}}">
+  </div>
+
+  <input type="submit" class="btn btn-primary" value="Update Info">
+</form>
+
+<div>
+  <a href="/contacts"><button class="btn btn-warning">View All Contacts</button></a>
+</div>

@@ -1,0 +1,20 @@
+<h2>TWITTER MESSAGES</h2>
+
+{{#if error}}
+<div class="alert alert-danger">{{error}}</div>
+{{/if}}
+
+<div id="twitter-messages-list">
+{{#each allMsg}}
+  <div class="message" style="border: solid 3px green; padding: 10px; margin: 10px">
+    <div class="message-from">{{sender_screen_name}} sent to {{recipient_screen_name}}</div>
+    <div class="message-time">At: {{created_at}}</div>
+    <div class="message-content">Message: {{text}}</div>
+  </div>
+{{/each}}
+</div>
+
+
+<div>
+  <a href="/contacts"><button class="btn btn-warning">View All Followers</button></a>
+</div>
