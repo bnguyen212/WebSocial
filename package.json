@@ -1,5 +1,5 @@
 {
-  "name": "Web Social",
+  "name": "WebSocial",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -12,7 +12,7 @@
     "debug": "^2.2.0",
     "express": "^4.13.4",
     "express-session": "^1.15.6",
-    "hbs": "^3.1.1",
+    "hbs": "^4.0.0",
     "mongoose": "^5.0.4",
     "mongoose-findorcreate": "^2.0.0",
     "morgan": "^1.6.1",
